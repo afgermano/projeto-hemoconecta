@@ -1,0 +1,109 @@
+.match-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.page-title {
+  font-size: 26px;
+  margin-bottom: 32px;
+}
+
+/* Seções */
+.match-section,
+.confirmed-section {
+  margin-bottom: 40px;
+}
+
+.match-section h3,
+.confirmed-section h3 {
+  margin-bottom: 16px;
+}
+
+/* Card principal */
+.match-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 24px;
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Paciente */
+.patient-info {
+  flex: 1;
+}
+
+.patient-name {
+  font-size: 20px;
+  color: #c62828;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Doadores */
+.donors-info {
+  flex: 1;
+}
+
+.donors-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.donor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Botão */
+.confirm-btn {
+  background: #c62828;
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.confirm-btn:hover {
+  background: #a61f1f;
+}
+
+/* Confirmados */
+.confirmed-card {
+  background: #f1f8f4;
+  border-left: 4px solid #2e7d32;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.status {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.status.waiting {
+  background: #fff3cd;
+  color: #856404;
+}
+
+@media (max-width: 768px) {
+  .match-card {
+    flex-direction: column;
+  }
+}

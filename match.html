@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Match | HemoConecta 🩸 </title>
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/match.css">
+</head>
+<body>
+
+  <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="midia/logo-hc.png" alt="HemoConecta">
+        </div>
+
+        <ul class="navbar-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="pacientes.html">Pacientes</a></li>
+            <li><a href="doadores.html">Doadores</a></li>
+        </ul>
+
+        <div class="navbar-action">
+            <a href="match.html" class="btn-active">Match</a>
+        </div>
+
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+  <main class="match-page">
+
+    <h2 class="page-title">Match de Doações de Sangue</h2>
+
+    <!-- MATCHES PENDENTES -->
+    <section class="match-section">
+      <h3>Matches Pendentes</h3>
+
+      <div class="match-card">
+        <div class="patient-info">
+          <p class="patient-name">Maria Silva</p>
+          <p><strong>Sangue:</strong> A+</p>
+          <p><strong>Cidade:</strong> São Paulo - SP</p>
+        </div>
+
+        <div class="donors-info">
+          <p class="donors-title">Doadores Compatíveis</p>
+
+          <div class="donor">
+            <span>Carlos Oliveira (A+)</span>
+            <button class="confirm-btn">Confirmar</button>
+          </div>
+
+          <div class="donor">
+            <span>Ana Costa (O+)</span>
+            <button class="confirm-btn">Confirmar</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="match-card">
+        <div class="patient-info">
+          <p class="patient-name">João Santos</p>
+          <p><strong>Sangue:</strong> O-</p>
+          <p><strong>Cidade:</strong> Campinas - SP</p>
+        </div>
+
+        <div class="donors-info">
+          <p class="donors-title">Doadores Compatíveis</p>
+
+          <div class="donor">
+            <span>Lucas Pereira (O-)</span>
+            <button class="confirm-btn">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATCHES CONFIRMADOS -->
+    <section class="confirmed-section">
+      <h3>Matches Confirmados</h3>
+
+      <div class="confirmed-card">
+        <p>
+          <strong>Maria Silva (A+)</strong> ↔
+          <strong>Carlos Oliveira (A+)</strong>
+        </p>
+        <span class="status waiting">Aguardando doação</span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+        <div class="footer-content">
+            
+            <p>
+                © 2026 <strong>HemoConecta</strong> — Sistema de apoio à doação de sangue
+            </p>
+
+            <p class="footer-sub">
+                Projeto desenvolvido para fins educacionais e portfólio
+            </p>
+
+        </div>
+    </footer>
+
+</body>
+</html>

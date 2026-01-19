@@ -1,0 +1,151 @@
+.blood-stock {
+  margin: 60px auto;
+  padding: 24px;
+  max-width: 1100px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Cada fileira */
+.blood-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Card individual */
+.blood-card {
+  flex: 1;
+  text-align: center;
+}
+
+/* Tipo sanguíneo */
+.blood-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Quantidade */
+.blood-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.admin-actions {
+  max-width: 1100px;
+  margin: 30px auto;
+  display: flex;
+  gap: 24px;
+}
+
+/* Cards */
+.action-card {
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Título */
+.action-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+
+.action-btn:hover {
+  background-color: #a61f1f;
+  transform: translateY(-2px);
+}
+
+.patients-no-match {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  padding: 24px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.carousel-controls button {
+  background: #c62828;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.carousel {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  transition: transform 0.3s ease;
+}
+
+.patient-card {
+  min-width: 220px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.patient-card .name {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.patient-card .blood {
+  color: #c62828;
+  font-weight: 500;
+}
+
+.patient-card .city {
+  font-size: 14px;
+  color: #555;
+}
+
+
+@media (max-width: 768px) {
+  .blood-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .blood-card {
+    flex: 0 0 45%;
+  }
+  .admin-actions {
+    flex-direction: column;
+  }
+  .patient-card {
+    min-width: 180px;
+  }
+}
