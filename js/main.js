@@ -1,3 +1,5 @@
+ console.log("JS carregou");
+
  const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.navbar-links');
 
@@ -57,3 +59,5 @@
             modalOverlay.classList.add("hidden");
         }
         });
+
+        // Carregar municípios do IBGE utilizando API públic
