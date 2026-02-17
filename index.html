@@ -100,22 +100,41 @@
 
         <div class="carousel">
             <div class="carousel-track">
-                <div class="patient-card">
-                    <p class="name">Maria Silva</p>
-                    <p class="blood">A+</p>
-                    <p class="city">São Paulo - SP</p>
+                <div class="patient-card" 
+                    data-name="Maria Silva" 
+                    data-blood="A+" 
+                    data-city="São Paulo - SP" 
+                    data-endereco="Rua dos Bobos, 127"
+                    data-notes="Necessidade de transplante de medula óssea"
+                    data-prioridade="Prioridade: Nivel 3">
+                        <p class="name">Maria Silva</p>
+                        <p class="blood">A+</p>
+                        <p class="city">São Paulo - SP</p>                
                 </div>
 
-                <div class="patient-card">
-                    <p class="name">João Santos</p>
-                    <p class="blood">O-</p>
-                    <p class="city">Campinas - SP</p>
+                <div class="patient-card" 
+                    data-name="João Santos" 
+                    data-blood="O-" 
+                    data-city="Campinas - SP" 
+                    data-endereco="Av. Brasil, 458"
+                    data-notes="Aguardando doador compatível para cirurgia"
+                    data-prioridade="Nivel 2">
+                        <p class="name">João Santos</p>
+                        <p class="blood">O-</p>
+                        <p class="city">Campinas - SP</p>
                 </div>
 
-                <div class="patient-card">
-                    <p class="name">Ana Costa</p>
-                    <p class="blood">B+</p>
-                    <p class="city">Sorocaba - SP</p>
+                <div class="patient-card" 
+                    data-name="Ana Costa" 
+                    data-blood="B+" 
+                    data-city="Sorocaba - SP" 
+                    data-endereco="Rua das Flores, 89"
+                    data-notes="Necessita transfusão urgente"
+                    data-prioridade="Nivel 4">
+
+                        <p class="name">Ana Costa</p>
+                        <p class="blood">B+</p>
+                        <p class="city">Sorocaba - SP</p>
                 </div>
             </div>
         </div>
@@ -135,38 +154,19 @@
         </div>
     </footer>
 
+    <div id="modal-overlay" class="hidden">
+        <div id="modal">
+            <button id="close-modal" class="btn-active">X</button>
+            <h2 id="modal-name"></h2>
+            <hr class="modal-divider">
+            <p id="modal-blood"></p>
+            <p id="modal-city"></p>
+            <p id="modal-notes"></p>
+            <p id="modal-prioridade"></p>        
+        </div>
+    </div>
 
-
-
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.navbar-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        const track = document.querySelector('.carousel-track');
-        const prevBtn = document.getElementById('prev');
-        const nextBtn = document.getElementById('next');
-
-        let index = 0;
-        const cardWidth = 236; // largura do card + gap
-
-        nextBtn.addEventListener('click', () => {
-            if (index < track.children.length - 1) {
-            index++;
-            track.style.transform = `translateX(-${index * cardWidth}px)`;
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (index > 0) {
-            index--;
-            track.style.transform = `translateX(-${index * cardWidth}px)`;
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 
 </body>
 </html>

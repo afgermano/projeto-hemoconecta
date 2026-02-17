@@ -110,6 +110,7 @@
 }
 
 .patient-card {
+  cursor: pointer;
   min-width: 220px;
   background: #f9f9f9;
   border-radius: 12px;
@@ -149,3 +150,4 @@
     min-width: 180px;
   }
 }
+
