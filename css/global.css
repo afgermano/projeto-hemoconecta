@@ -11,12 +11,12 @@
 /*Menu*/
 
 .navbar {
+  position: relative; 
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px 24px;
   background-color: #ffffff;
-  position: relative;
 }
 
 .navbar-logo img {
@@ -24,12 +24,9 @@
 }
 
 .navbar-links {
-  list-style: none;
   display: flex;
-  gap: 32px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: center;
+  gap: 24px;
 }
 
 .navbar-links a {
@@ -149,5 +146,3 @@
   font-size: 13px;
   color: #777;
 }
-
-
