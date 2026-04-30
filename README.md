@@ -1,6 +1,6 @@
-## 🩸 HemoConecta
+## 🩸 RedLife
 
-O HemoConecta é um projeto web desenvolvido com o objetivo de auxiliar postos de saúde no controle de doações de sangue, conectando pacientes que necessitam de transfusão com doadores compatíveis de forma simples e organizada.
+O RedLife é um projeto web desenvolvido com o objetivo de auxiliar postos de saúde no controle de doações de sangue, conectando pacientes que necessitam de transfusão com doadores compatíveis de forma simples e organizada.
 
 Este projeto foi criado com foco educacional e de portfólio, priorizando clareza, boa organização do código e lógica de negócio realista.
 
