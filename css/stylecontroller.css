@@ -1,0 +1,248 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* nav */
+    nav{
+        background-color: rgb(13, 0, 37);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 35px;
+        width: 100%;
+        height: 60px;
+    }
+    ul{
+        display: flex;
+        list-style-type: none;
+        gap: 50px;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    a:hover{
+        opacity: 0.7;
+    }
+    .barra{
+        display: none;
+    }
+    .icone{
+        display: none;
+    }
+    #icon_menu{
+        display: none;
+    }
+    /*                mobile nav               */
+    @media (max-width: 768px) {
+        nav{
+            position: relative;
+        }
+        
+        .icone{
+            margin-left: auto;
+            display: block;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        .barra{
+            display: block;
+            width: 30px;
+            height: 5px;
+            background-color: aliceblue;
+            margin: 5px 0;
+            border-radius: 10px;
+        }
+        .nave ul{
+            background-color: rgb(32, 0, 92);
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 1px 1px 10px;
+            z-index: 1;
+        }
+    
+        #icon_menu:checked ~ .nave ul{
+            display: flex;
+        }
+    }
+    /*              fim mobile                  */ 
+    
+/* fim nav */
+/*     main     */
+/*  section  */
+    .foto{
+        width: 10%;
+    }
+    .Dados_perfil{
+        margin: 23px;
+        padding: 20px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: rgb(255, 255, 255);
+        justify-content: flex-start;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.08);
+    }
+    .dados{
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
+        gap: 5px;
+    }
+    hr{
+        margin: 25px;
+    }
+/*  fimsection  */ 
+/*  article  */
+    article{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .titulo{
+        margin: 25px;
+    }
+    .foto_paciente{
+        width: 70px;
+        height: 70px;
+    }
+    .box1,.boxmobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: rgb(131, 131, 131);
+        height: 15em;
+        width: 13em;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 1px 5px 5px rgb(172, 170, 170);
+        margin: 10px;
+    }
+    .boxmobile{
+        display: none;
+    }
+    button{
+        padding: 10px;
+        border-radius: 100px;
+        border: 0px;
+        cursor: pointer;
+    }
+    .botao_paciente{
+        cursor: pointer;
+    }
+    .botoes_paciente{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .setaE_paciente{
+        width: 20px;
+        height: 30px;
+    }
+    .setaD_paciente{
+        width: 20px;
+        height: 30px;
+        transform: scaleX(-1);
+    }
+/* fimarcticle */
+/*   Section    */
+    .Painel{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+    .layout{
+        background-color: rgb(216, 216, 216);
+        width: 80em;
+        height: 40em;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+    .dados_layout{
+        background-color: rgb(136, 136, 136);
+        width: 15em;
+        height: 40em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        border-radius: 10px;
+    }
+    .layout_foto{
+        width: 50%;
+        height: 20%;
+    }
+    .caixas_layout{
+        background-color: rgb(167, 167, 167);
+        width: 63em;
+        height: 10em;
+        border-radius: 10px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .colunas_layout{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+/*  fimsection  */
+/*  fim main   */
+
+/*  mobilemain  */
+@media (max-width: 768px) {
+    .iconebutton{
+        display: flex;
+        justify-content: center;
+    }
+    .Dados_perfil{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .dados{
+        margin-left: 0;
+    }
+    .box1{
+        display: none;
+    }
+    .boxmobile{
+        display: flex;
+    }
+    .layout{
+        flex-direction: column;
+    }
+    .layout_foto{
+        width: 8em;
+        height: 8em;
+        padding: 10px;
+    }
+    .dados_layout{
+        width: 65em;
+        height: 20em;
+        flex-direction: row;
+        gap: 100px;
+    }
+    .button_layout{
+        width: 10em;
+    }
+}
+/* fimmobile */
