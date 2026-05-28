@@ -25,6 +25,7 @@
 
 .navbar-links {
   display: flex;
+  list-style: none;
   justify-content: center;
   gap: 24px;
 }
@@ -53,6 +54,11 @@
 
 .navbar-links a:hover:after{
     width: 100%;
+}
+.navbar-action {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* distância entre Match e perfil */
 }
 
 /* Hamburger */
@@ -101,18 +107,35 @@
 
 /*Botões e Links*/
 
-.btn-active {
+.btn-active{
   background-color: #e02b2b;
   color: #fff;
   padding: 8px 18px;
   border-radius: 15px;
   text-decoration: none;
   font-weight: 500;
+  margin-left: 1em;
+}
+.btn-active2{
+  background-color: #74CAFF;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 1em;
 }
 
 .btn-active:hover{
     background-color: #ffffff;
     color: #e02b2b;
+    transition: all 0.2s ease;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+.btn-active2:hover{
+    background-color: #ffffff;
+    color: #74CAFF;
     transition: all 0.2s ease;
     transform: translateY(-2px);
     cursor: pointer;
