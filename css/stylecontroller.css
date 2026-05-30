@@ -7,81 +7,17 @@
 
 
 /*     main     */
-/*  article  */
-    
-    .titulo{
-        margin: 25px;
-    }
-    .box1,.boxmobile{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background-color: rgba(251, 126, 126, 0.845);
-        height: 15em;
-        width: 13em;
-        padding: 30px;
-        border-radius: 10px;
-        border: 2px solid rgba(0, 0, 0, 0.345);
-        box-shadow: 0 1px 16px  rgba(0, 0, 0, 0.271);
-        margin: 10px;
-    }
-    .box2,.boxmobile_p{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        background-color: rgba(172, 197, 243, 0.845);
-        height: 15em;
-        width: 13em;
-        padding: 30px;
-        border-radius: 10px;
-        border: 2px solid rgba(0, 0, 0, 0.345);
-        box-shadow: 0 1px 16px  rgba(0, 0, 0, 0.271);
-        margin: 10px;
-    }
-    .boxmobile{
-        display: none;
-    }
-    .boxmobile_p{
-        display: none;
-    }
-    button{
-        padding: 10px;
-        background-color: rgb(151, 89, 89);
-        border-radius: 100px ;
-        border: 1px;
-        color: rgb(255, 211, 211);
-        cursor: pointer;
-    }
-    .button_p{
-        padding: 10px;
-        background-color: rgb(104, 117, 174);
-        border-radius: 100px ;
-        border: 1px;
-        color: rgb(3, 7, 85);
-        cursor: pointer;
-    }
-    .botao_paciente{
-        cursor: pointer;
-    }
-    .botoes_paciente{
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    .setaE_paciente{
-        width: 20px;
-        height: 30px;
-    }
-    .setaD_paciente{
-        width: 20px;
-        height: 30px;
-        transform: scaleX(-1);
-    }
-/* fimarcticle */
 
-/* article */
+/* div dos quadros */
+    .quadros{
+        display: flex;
+        grid-template-columns: 300px 100px;
+        gap: 300px;
+    }
+
+/*      fim       */
+
+/* article banner */
 .atendente_info{
     display: flex;
     align-items: center;
@@ -96,8 +32,8 @@
 .atendente_foto{
     margin-top: -90px;
     margin-left: 50px;
-    border: 5px solid white;
-    border-radius: 50%;
+    border: 9px solid white;
+    border-radius: 100%;
     width: 150px;
 }
 
@@ -118,8 +54,9 @@
     display: block;
     
 }
+/* fimarticle */
 
-/*   Section    */
+/*   Section dados do atendente   */
     .dados_atendente{
         display: flex;
         align-items: top;
@@ -136,7 +73,73 @@
     }
 
 /*  fimsection  */
-/* fimarticle */
+
+/*   Section  historico de acesso  */
+    .access_history{
+        width: 320px;
+        height: 380px;
+
+        background: #FFF4F4;
+
+        border: 2px solid #FFCDCD;
+        border-radius: 12px;
+
+        padding: 15px;
+        overflow-y: auto;
+    }
+    .access_history::-webkit-scrollbar{
+        width: 10px;
+    }
+    .access_history::-webkit-scrollbar-track{
+        background: transparent;
+    }
+    .access_history::-webkit-scrollbar-thumb{
+        background: #ffadad;
+        border-radius: 10px;
+    }
+    .title_history{
+        font-size: 12px;
+        color: #FF3B3B;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px 10px 15px;
+        margin: 0 -15px 15px -15px;
+        border-bottom: 2px solid #FFCDCD;
+        
+    }
+    .historico_dados{
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+    .dados_historico {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+       
+    }
+    small{
+        margin: 0px 50px;
+    }
+    .agenda{
+        background: #FFEBBF;
+        padding: 7px;
+        border-radius: 2em;
+    }
+    .user{
+        background: #B5BCFF;
+        padding: 7px;
+        border-radius: 2em;
+    }
+    .doador{
+        background: #FF8888;
+        padding: 7px;
+        border-radius: 2em;
+    }
+
+
+/*  fimsection  */
 /*  fim main   */
 
 /*  mobilemain  */
