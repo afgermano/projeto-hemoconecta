@@ -11,8 +11,8 @@
 /* div dos quadros */
     .quadros{
         display: flex;
-        grid-template-columns: 300px 100px;
-        gap: 300px;
+        flex-direction: space-between;
+        gap: 50em;
     }
 
 /*      fim       */
@@ -117,7 +117,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-       
+        gap:1px;
     }
     small{
         margin: 0px 50px;
@@ -140,6 +140,26 @@
 
 
 /*  fimsection  */
+
+/* section numeros de dados */
+.num_dados{
+    display: flex;
+    justify-content: center;
+    gap: 15em;
+    margin: 10px 20px;
+}
+.caddoa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10em;
+    padding: 20px 20px 20px 20px;
+    border-radius: 8px;
+    background-color: #FFC2C2;
+    gap: 10px;
+    color: #7B2C2C;
+}
+/*       fim section       */
 /*  fim main   */
 
 /*  mobilemain  */
