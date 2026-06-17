@@ -2,9 +2,13 @@
 
  const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.navbar-links');
+        const navLinks2 = document.querySelector('.navbar-action');
 
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+        });
+        hamburger.addEventListener('click', () => {
+            navLinks2.classList.toggle('active');
         });
 
         const track = document.querySelector('.carousel-track');
