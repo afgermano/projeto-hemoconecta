@@ -1,0 +1,77 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.icone{
+    width: 70px;
+    height: 70px;
+}
+
+body{
+    background-image: url(/RedLife/projeto-hemoconecta/midia/fundologin.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadrologin{
+    color: #FFC0C0;
+    width: 360px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    background: rgba(255, 62, 62, 0.08);
+
+    backdrop-filter: blur(25px);
+    border-radius: 12px;
+    border: 5px solid #ff25223a;
+    
+}
+
+.quadrologin p{
+    font-size: 11px;
+    color: #FFE8E8;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: white;
+    font-size: small;
+}
+
+.tit{
+    text-align: left;
+}
+
+.campo input{
+    width: 100%;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid rgb(188, 188, 188);
+}
+
+#botao{
+    color: white;
+    background: linear-gradient(to right,#C00F0C, #FF2B2B);
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: 2px solid rgb(255, 84, 84);
+}
+
+#botao:hover{
+    background: linear-gradient(to right, #FF2B2B, #C00F0C);
+    transform: scale(1.03);
+    box-shadow: 1px 1px 10px #FFC0C0;
+}
