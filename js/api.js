@@ -1,4 +1,4 @@
-const select = document.getElementById("donor-state");
+const select = document.getElementById("estado-doador");
 
 if (select) {
   fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")

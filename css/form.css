@@ -1,0 +1,438 @@
+/* =========================================================
+   Cadastro de Doador — Modal
+   ========================================================= */
+
+:root {
+  --cd-bg-page: #eef0f2;
+  --cd-card-bg: #ffffff;
+  --cd-section-bg: #f7f7f8;
+  --cd-input-bg: #e2e3e5;
+  --cd-input-bg-hover: #d8d9db;
+  --cd-text-main: #1a1a1a;
+  --cd-text-sub: #8a8d91;
+  --cd-text-label: #2b2b2d;
+  --cd-required: #c62828;
+  --cd-divider: #d9dade;
+  --cd-btn-secondary-bg: #d9dade;
+  --cd-btn-secondary-text: #6b6d72;
+  --cd-btn-primary-bg: #c62828;
+  --cd-btn-primary-text: #ffffff;
+  --cd-link-color: #74caff;
+  --cd-radius: 10px;
+  --cd-radius-lg: 18px;
+  --cd-navbar-h: 80px; /* Fallback ajustado via JS */
+}
+
+/* Modal Overlay (Fundo Escuro) */
+.cd-overlay {
+  position: fixed;
+  top: var(--cd-navbar-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(20, 20, 22, 0.55);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+
+.cd-overlay.cd-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cd-overlay.hidden {
+  display: none;
+}
+
+/* Estrutura do Modal */
+.cd-modal {
+  background: var(--cd-card-bg);
+  width: 100%;
+  max-width: 620px;
+  max-height: calc(100vh - var(--cd-navbar-h) - 48px);
+  margin: 0 auto;
+  border-radius: var(--cd-radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.cd-overlay.cd-open .cd-modal {
+  transform: translateY(0) scale(1);
+}
+
+.cd-modal * {
+  box-sizing: border-box;
+}
+
+/* Cabeçalho */
+.cd-modal-header {
+  padding: 28px 32px 18px 32px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cd-modal-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--cd-text-main);
+  letter-spacing: -0.02em;
+}
+
+.cd-modal-header p {
+  margin: 6px 0 0 0;
+  font-size: 14.5px;
+  color: var(--cd-text-sub);
+  line-height: 1.4;
+}
+
+.cd-close-btn {
+  position: absolute;
+  top: 22px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--cd-section-bg);
+  color: var(--cd-text-sub);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+}
+
+.cd-close-btn:hover {
+  background: var(--cd-input-bg);
+}
+
+/* Corpo e Seções */
+.cd-modal-body {
+  overflow-y: auto;
+  padding: 4px 32px 28px 32px;
+}
+
+.cd-step {
+  display: none;
+}
+
+.cd-step.cd-step-active {
+  display: block;
+}
+
+.cd-step-subtitle {
+  font-size: 14px;
+  color: var(--cd-text-sub);
+  margin-top: -10px;
+  margin-bottom: 16px;
+}
+
+.cd-section {
+  background: var(--cd-section-bg);
+  border-radius: var(--cd-radius-lg);
+  padding: 22px 24px 26px 24px;
+  margin-bottom: 18px;
+}
+
+.cd-section-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.cd-section-title h2 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--cd-text-main);
+  white-space: nowrap;
+}
+
+.cd-section-title .cd-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--cd-divider);
+}
+
+.cd-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--cd-text-sub);
+  font-weight: 700;
+  margin: 4px 0 6px 0;
+}
+
+/* Form Layout e Campos */
+.cd-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.cd-row:last-child {
+  margin-bottom: 0;
+}
+
+.cd-row.cd-single {
+  grid-template-columns: 1fr;
+}
+
+.cd-field label {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--cd-text-label);
+  margin-bottom: 8px;
+}
+
+.cd-field .cd-link-hint {
+  float: right;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--cd-link-color);
+  text-decoration: none;
+}
+
+.cd-required {
+  color: var(--cd-required);
+  margin-left: 2px;
+}
+
+.cd-modal input,
+.cd-modal select,
+.cd-modal textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: var(--cd-input-bg);
+  border-radius: var(--cd-radius);
+  padding: 13px 14px;
+  font-size: 14.5px;
+  color: var(--cd-text-main);
+  font-family: inherit;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+}
+
+.cd-modal textarea {
+  resize: vertical;
+}
+
+.cd-modal input::placeholder,
+.cd-modal textarea::placeholder {
+  color: #9a9ca0;
+}
+
+.cd-modal input:hover,
+.cd-modal select:hover,
+.cd-modal textarea:hover {
+  background: var(--cd-input-bg-hover);
+}
+
+.cd-modal input:focus,
+.cd-modal select:focus,
+.cd-modal textarea:focus {
+  background: #fff;
+  box-shadow: 0 0 0 2px var(--cd-btn-primary-bg) inset, 0 0 0 3px rgba(198, 40, 40, 0.15);
+}
+
+.cd-modal input.cd-invalid,
+.cd-modal select.cd-invalid,
+.cd-modal textarea.cd-invalid {
+  box-shadow: 0 0 0 2px var(--cd-required) inset;
+  background: #fdeceb;
+}
+
+.cd-modal select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%238a8d91' stroke-width='1.6'><path d='M5 7l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  color: #55575b;
+}
+
+/* Grid de Tipos Sanguíneos (Etapa 3) */
+.cd-blood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.cd-blood-btn {
+  padding: 10px;
+  border: none;
+  border-radius: var(--cd-radius);
+  background: var(--cd-input-bg);
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cd-blood-btn:hover {
+  background: var(--cd-input-bg-hover);
+}
+
+.cd-blood-btn.active {
+  background: var(--cd-btn-primary-bg);
+  color: #ffffff;
+}
+
+/* =========================================================
+   Cards de Elegibilidade (Estilo Visual Personalizado)
+   ========================================================= */
+
+.cd-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cd-checkbox-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #c8c8c8;
+  border-radius: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cd-checkbox-card:hover {
+  background-color: #ededed;
+  border-color: #b0b0b0;
+}
+
+.cd-checkbox-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.cd-checkmark {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  background-color: #e2e2e2;
+  border: 1px solid #b8b8b8;
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cd-checkbox-card input[type="checkbox"]:checked ~ .cd-checkmark {
+  background-color: #2b2b2d;
+  border-color: #2b2b2d;
+}
+
+.cd-checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.cd-checkbox-card input[type="checkbox"]:checked ~ .cd-checkmark::after {
+  display: block;
+}
+
+.cd-checkbox-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cd-checkbox-text strong {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #333333;
+  line-height: 1.2;
+}
+
+.cd-checkbox-text small {
+  font-size: 13px;
+  color: #8c8c8c;
+  line-height: 1.2;
+}
+
+/* Rodapé / Botões */
+.cd-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 18px 32px 26px 32px;
+  flex-shrink: 0;
+}
+
+.cd-btn {
+  border: none;
+  border-radius: var(--cd-radius);
+  padding: 13px 26px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 0.15s ease, transform 0.05s ease;
+}
+
+.cd-btn:active {
+  transform: scale(0.98);
+}
+
+.cd-btn-secondary {
+  background: var(--cd-btn-secondary-bg);
+  color: var(--cd-btn-secondary-text);
+}
+
+.cd-btn-secondary:hover {
+  filter: brightness(0.95);
+}
+
+.cd-btn-primary {
+  background: var(--cd-btn-primary-bg);
+  color: var(--cd-btn-primary-text);
+}
+
+.cd-btn-primary:hover {
+  filter: brightness(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 520px) {
+  .cd-row {
+    grid-template-columns: 1fr;
+  }
+  .cd-modal-header,
+  .cd-modal-body,
+  .cd-modal-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

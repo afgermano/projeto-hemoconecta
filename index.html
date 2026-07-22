@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/form.css">
     <link rel="icon" type="image/png" href="midia/logotipo.png">
     <title> Redlife 🩸 </title>
 </head>
@@ -21,7 +23,7 @@
         <div class="navbar-action">
             <a href="match.html" class="btn-active">Match</a>
             <a href="Controle.html" class="navbar-logo">
-                <img src="midia/Vector.png">
+                <img src="midia/Vector.png" alt="Controle">
             </a>
         </div>
 
@@ -35,63 +37,62 @@
     <section class="blood-stock">
         <div class="blood-row">
             <div class="blood-card">
-            <h3>A+</h3>
-            <p>3 no estoque</p>
+                <h3>A+</h3>
+                <p>3 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>B+</h3>
-            <p>2 no estoque</p>
+                <h3>B+</h3>
+                <p>2 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>O+</h3>
-            <p>14 no estoque</p>
+                <h3>O+</h3>
+                <p>14 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>AB+</h3>
-            <p>6 no estoque</p>
+                <h3>AB+</h3>
+                <p>6 no estoque</p>
             </div>
         </div>
 
         <div class="blood-row">
             <div class="blood-card">
-            <h3>A-</h3>
-            <p>4 no estoque</p>
+                <h3>A-</h3>
+                <p>4 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>B-</h3>
-            <p>1 no estoque</p>
+                <h3>B-</h3>
+                <p>1 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>O-</h3>
-            <p>8 no estoque</p>
+                <h3>O-</h3>
+                <p>8 no estoque</p>
             </div>
 
             <div class="blood-card">
-            <h3>AB-</h3>
-            <p>0 no estoque</p>
+                <h3>AB-</h3>
+                <p>0 no estoque</p>
             </div>
         </div>
     </section>
 
     <section class="admin-actions">
         <div class="action-card">
-            <h3>Cadastrar <span style="color: #74CAFF;" >Paciente</span></h3>
+            <h3>Cadastrar <span style="color: #74CAFF;">Paciente</span></h3>
             <a href="#" class="btn-active2">Acessar</a>
         </div>
 
         <div class="action-card">
-            <h3>Cadastrar <span style="color: #c62828;" >Doador</span></h3>
-            <a href="#" class="btn-active">Acessar</a>
+            <h3>Cadastrar <span style="color: #c62828;">Doador</span></h3>
+            <a href="#" id="btn-open-cadastro-doador" class="btn-active">Acessar</a>
         </div>
     </section>
 
     <section class="patients-no-match">
-
         <div class="section-header">
             <h3>Pacientes sem <span style="color: #c62828;">Match</span></h3>
             <div class="carousel-controls">
@@ -133,7 +134,6 @@
                     data-endereco="Rua das Flores, 89"
                     data-notes="Necessita transfusão urgente"
                     data-prioridade="Nivel 4">
-
                         <p class="name">Ana Costa</p>
                         <p class="blood">B+</p>
                         <p class="city">Sorocaba - SP</p>
@@ -144,7 +144,6 @@
 
     <footer class="footer">
         <div class="footer-content">
-            
             <p>
                 © 2026 <strong>Redlife</strong> — Sistema de apoio à doação de sangue
             </p>
@@ -152,10 +151,12 @@
             <p class="footer-sub">
                 Projeto desenvolvido para fins educacionais e portfólio
             </p>
-
         </div>
     </footer>
 
+    <!-- ==================== MODAIS ==================== -->
+
+    <!-- Modal 1: Detalhes do Paciente -->
     <div id="modal-overlay" class="hidden">
         <div id="modal">
             <button id="close-modal" class="btn-active">X</button>
@@ -168,7 +169,276 @@
         </div>
     </div>
 
+    <!-- Modal 2: Cadastro de Doador (Fluxo de 3 Etapas) -->
+    <div id="cadastro-doador-overlay" class="cd-overlay hidden">
+        <div class="cd-modal" role="dialog" aria-modal="true" aria-labelledby="cd-modal-title">
+
+            <div class="cd-modal-header">
+                <button id="cd-close-modal" class="cd-close-btn" aria-label="Fechar">&times;</button>
+                <h1 id="cd-modal-title">Cadastro de Doador</h1>
+                <p id="cd-modal-subtitle">Coloque todos os dados do doador</p>
+            </div>
+
+            <div class="cd-modal-body">
+
+                <!-- ETAPA 1: Dados Pessoais & Contato -->
+                <div class="cd-step cd-step-active" data-step="1">
+                    <div class="cd-section">
+                        <div class="cd-section-title">
+                            <h2>Dados pessoais</h2>
+                            <div class="cd-rule"></div>
+                        </div>
+
+                        <div class="cd-row cd-single">
+                            <div class="cd-field">
+                                <label for="cd-nome">Nome completo<span class="cd-required">*</span></label>
+                                <input type="text" id="cd-nome" placeholder="Ex: Maria Aparecida da Silva" data-required="true">
+                            </div>
+                        </div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-cpf">Cpf<span class="cd-required">*</span></label>
+                                <input type="text" id="cd-cpf" placeholder="000.000.000-00" data-required="true">
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-rg">RG</label>
+                                <input type="text" id="cd-rg" placeholder="Opcional">
+                            </div>
+                        </div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-sexo">Sexo biológico<span class="cd-required">*</span></label>
+                                <select id="cd-sexo" data-required="true">
+                                    <option value="">Selecionar</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="masculino">Masculino</option>
+                                </select>
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-nascimento">Data de nascimento<span class="cd-required">*</span></label>
+                                <input type="text" id="cd-nascimento" placeholder="DD/MM/AAAA" data-required="true">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cd-section">
+                        <div class="cd-section-title">
+                            <h2>Dados de contato</h2>
+                            <div class="cd-rule"></div>
+                        </div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-celular">Celular<span class="cd-required">*</span></label>
+                                <input type="text" id="cd-celular" placeholder="(00) 00000-0000" data-required="true">
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-telefone">Telefone</label>
+                                <input type="text" id="cd-telefone" placeholder="(00) 0000-0000">
+                            </div>
+                        </div>
+
+                        <div class="cd-row cd-single">
+                            <div class="cd-field">
+                                <label for="cd-email">E-mail</label>
+                                <input type="email" id="cd-email" placeholder="paciente@email.com">
+                            </div>
+                        </div>
+
+                        <div class="cd-eyebrow">ENDEREÇO</div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-cep">CEP<span class="cd-required">*</span> <a class="cd-link-hint" href="#">Não sabe seu CEP?</a></label>
+                                <input type="text" id="cd-cep" placeholder="00000-000" data-required="true">
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-cidade">Cidade<span class="cd-required">*</span></label>
+                                <select id="cd-cidade" data-required="true">
+                                    <option value="">Selecione sua cidade:</option>
+                                    <option value="sp">São Paulo - SP</option>
+                                    <option value="campinas">Campinas - SP</option>
+                                    <option value="sorocaba">Sorocaba - SP</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-logradouro">Logradouro</label>
+                                <input type="text" id="cd-logradouro" placeholder="Rua/Av">
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-numero">Número</label>
+                                <input type="text" id="cd-numero" placeholder="Nº">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 2: Critérios de Elegibilidade -->
+                <div class="cd-step" data-step="2">
+                    <div class="cd-section">
+                        <div class="cd-section-title">
+                            <h2>Critérios de elegibilidade</h2>
+                            <div class="cd-rule"></div>
+                        </div>
+                        <p class="cd-step-subtitle">Verificação básica antes do cadastro. Marque tudo que se aplica ao doador</p>
+
+                        <div class="cd-checkbox-list">
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="idade">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Tem entre 16 e 69 anos</strong>
+                                    <small>Menores de 18 precisam de autorização do responsável</small>
+                                </div>
+                            </label>
+
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="peso">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Pesa no mínimo 50 kg</strong>
+                                    <small>Peso mínimo exigido por lei</small>
+                                </div>
+                            </label>
+
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="saude">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Está em bom estado de saúde geral</strong>
+                                    <small>Sem febre, gripe ou infecção ativa</small>
+                                </div>
+                            </label>
+
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="sono">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Dormiu pelo menos 6 horas na noite anterior</strong>
+                                </div>
+                            </label>
+
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="alcool">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Não consumiu bebida alcoólica nas últimas 12h</strong>
+                                </div>
+                            </label>
+
+                            <label class="cd-checkbox-card">
+                                <input type="checkbox" name="elegibilidade" value="gestando">
+                                <span class="cd-checkmark"></span>
+                                <div class="cd-checkbox-text">
+                                    <strong>Não está gestando ou amamentando</strong>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ETAPA 3: Histórico de Saúde -->
+                <div class="cd-step" data-step="3">
+                    <div class="cd-section">
+                        <div class="cd-section-title">
+                            <h2>Histórico de saúde</h2>
+                            <div class="cd-rule"></div>
+                        </div>
+
+                        <div class="cd-field" style="margin-bottom: 20px;">
+                            <label>Tipo Sanguíneo</label>
+                            <div class="cd-blood-grid">
+                                <button type="button" class="cd-blood-btn" data-blood="A+">A+</button>
+                                <button type="button" class="cd-blood-btn" data-blood="A-">A-</button>
+                                <button type="button" class="cd-blood-btn" data-blood="B+">B+</button>
+                                <button type="button" class="cd-blood-btn" data-blood="B-">B-</button>
+                                <button type="button" class="cd-blood-btn" data-blood="AB+">AB+</button>
+                                <button type="button" class="cd-blood-btn" data-blood="AB-">AB-</button>
+                                <button type="button" class="cd-blood-btn" data-blood="O+">O+</button>
+                                <button type="button" class="cd-blood-btn" data-blood="O-">O-</button>
+                            </div>
+                            <input type="hidden" id="cd-tipo-sanguineo">
+                        </div>
+
+                        <div class="cd-row">
+                            <div class="cd-field">
+                                <label for="cd-ultima-doacao">Última doação</label>
+                                <input type="text" id="cd-ultima-doacao" placeholder="DD/MM/AAAA">
+                            </div>
+                            <div class="cd-field">
+                                <label for="cd-num-doacoes">Nº de doações anteriores</label>
+                                <input type="number" id="cd-num-doacoes" placeholder="0" min="0">
+                            </div>
+                        </div>
+
+                        <div class="cd-field" style="margin-bottom: 16px;">
+                            <label>Condições que impedem a doação</label>
+                            <div class="cd-row">
+                                <label class="cd-checkbox-card cd-checkbox-sm">
+                                    <input type="checkbox" name="impedimento" value="hepatite">
+                                    <span class="cd-checkmark"></span>
+                                    <span>Diagnóstico de hepatite B ou C</span>
+                                </label>
+                                <label class="cd-checkbox-card cd-checkbox-sm">
+                                    <input type="checkbox" name="impedimento" value="hiv">
+                                    <span class="cd-checkmark"></span>
+                                    <span>HIV/AIDS</span>
+                                </label>
+                            </div>
+                            <div class="cd-row">
+                                <label class="cd-checkbox-card cd-checkbox-sm">
+                                    <input type="checkbox" name="impedimento" value="chagas">
+                                    <span class="cd-checkmark"></span>
+                                    <span>Doenças de chagas</span>
+                                </label>
+                                <label class="cd-checkbox-card cd-checkbox-sm">
+                                    <input type="checkbox" name="impedimento" value="drogas">
+                                    <span class="cd-checkmark"></span>
+                                    <span>Uso de drogas injetáveis</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="cd-row cd-single">
+                            <div class="cd-field">
+                                <label for="cd-medicamentos">Medicamentos em uso</label>
+                                <input type="text" id="cd-medicamentos" placeholder="Nenhum/descrever">
+                            </div>
+                        </div>
+
+                        <div class="cd-row cd-single">
+                            <div class="cd-field">
+                                <label for="cd-alergias">Alergias conhecidas</label>
+                                <input type="text" id="cd-alergias" placeholder="Nenhum/descrever">
+                            </div>
+                        </div>
+
+                        <div class="cd-row cd-single">
+                            <div class="cd-field">
+                                <label for="cd-observacoes">Observações clínicas</label>
+                                <textarea id="cd-observacoes" rows="3" placeholder="Cirurgias recentes, tatuagens, piercings, viagens..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="cd-modal-footer">
+                <button id="cd-btn-voltar" class="cd-btn cd-btn-secondary">Voltar</button>
+                <button id="cd-btn-avancar" class="cd-btn cd-btn-primary">Avançar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts da Aplicação -->
     <script src="js/main.js"></script>
+    <script src="js/form-doador.js"></script>
 
 </body>
 </html>
