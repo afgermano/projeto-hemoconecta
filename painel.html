@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,36 +35,76 @@
     <section class="estrura_dados">
         <div class="perfil_adm">
             <div class="info_adm">
-                <img src="midia/Vector.png" alt="foto_perfil">
-                <h3>Homelander</h3>
-                <p>Administrador</p>
+                <div class="avatar_wrapper">
+                    <img src="midia/Vector.png" alt="foto_perfil" class="foto_adm">
+                </div>
+                <h3 class="nome_adm">Homelander</h3>
+                <p class="cargo_adm">Administrador</p>
                 <hr>
                 <div class="contatos_adm">
                     <p>
                         <img src="midia/Mail.png" alt="icone">
-                        homelander@gmail.com
+                        <span>homelander@gmail.com</span>
                     </p>
                     <p>
                         <img src="midia/Map pin.png" alt="icone">
-                        Rua Fatec - lins
+                        <span>Rua Fatec - lins</span>
                     </p>
                     <p>
                         <img src="midia/Phone.png" alt="icone">
-                        14999999999
+                        <span>14999999999</span>
                     </p>
                 </div>
                 <hr>
-                <button>Usuarios</button>
-                <button>Dashbord</button>
+                <button>>Usuarios</button>
+                <button>>Dashbord</button>
             </div>
         </div>
         <div class="dados_sistema">
             <div class="dados_cadastros">
-              Dados dos cadastros
+                    <div class="caddoa">
+                        <div class="dados_historico">
+                            <img src="midia/Frame 26.png" class="doador">
+                            <h4>Doadores Cadastrados</h4>
+                        </div>
+                        <h1>100</h1>
+                    </div>
+                    <div class="cadpac">
+                        <div class="dados_historico">
+                            <img src="midia/User.png" class="user">
+                            <h4>Pacientes Cadastrados</h4>
+                        </div>
+                        <h1>100</h1>
+                    </div>
+                    <div class="cadage">
+                        <div class="dados_historico">
+                            <img src="midia/Calendar.png" class="agenda">
+                            <h4>Agendamentos</h4>
+                        </div>
+                        <h1>100</h1>
+                    </div>
+                    <div class="cadtri">
+                        <div class="dados_historico">
+                            <img src="midia/Search.png" class="tri">
+                            <h4>Triagem</h4>
+                        </div>
+                        <h1>100</h1>
+                    </div>
             </div>
     
             <div class="graficos">
-                Gráficos
+                <div class="dashbord">
+                    <div class="grafbarras">
+                        <canvas id="grafico_chart"></canvas>
+                    </div>
+                    <div class="roscaenum">
+                        <div class="numusu" id="numusus">
+                        </div>
+                        <div class="grafroscas">
+                            <canvas id="rosca_chart"></canvas>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -80,5 +120,116 @@
         </div>
     </footer>
     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+         //grafico em colunas
+        const ctx = document.getElementById('grafico_chart');
+        const ctx2 = document.getElementById('rosca_chart');
+
+        let mes = ["Janeiro",
+                    "Feveiro",
+                    "Marco",
+                    "Abril", 
+                    "Maio", 
+                    "Junho",
+                    "Julho",
+                    "Agosto",
+                    "Outobro",
+                    "Setembro",
+                    "Novembro",
+                    "Dezembro"]
+        let quantdoa = [10,20,30,40,50,60,70,80,30,30,10,60]
+        let quantpac = [5,25,15,40,50,60,70,80,26,50,20,90]
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+
+            labels: mes,
+
+            datasets: [{
+                label: 'Doador',
+                data: quantdoa,
+                backgroundColor: '#FF6969'
+            },
+            {
+                label: 'Paciente',
+                data:quantpac,
+                backgroundColor: '#74CAFF'
+            },
+            {
+                label: 'Funcionario',
+                data:quantpac,
+                backgroundColor: '#E07000'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins:{
+            legend:{
+                display: false
+            }
+        },
+        scales: {
+            x: {
+                grid: { display: false }
+            },
+            y: {
+                beginAtZero: true,
+                grid: { color: '#F0F0F3' },
+                ticks: { display: false }
+            }
+        }
+    }
+});
+
+//grafico rosca
+    let usuarios = ['Doadores', 'Pacientes', 'Agendamentos', 'Funcionarios']
+    let quantusu = [50,20,30,50]
+    let cores = [ '#FF6969','#63B4FF','#FFE992','#E07000']
+
+    new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+
+            labels: usuarios,
+
+            datasets: [{
+                label: 'Doador',
+                data: quantusu,
+                backgroundColor: cores
+            },
+            ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '65%',
+                plugins:{
+                    legend:{
+                        display: false
+                    }
+                },
+                scales: {
+                y: {
+                beginAtZero: true
+                }
+            }
+            }
+        });
+
+        const porcusu = document.getElementById('numusus')
+        const totalUsu = quantusu.reduce((soma, valor) => soma + valor, 0)
+
+        usuarios.forEach((usuario,i) => {
+            const porcentagem = ((quantusu[i] / totalUsu) * 100).toFixed(1)
+            porcusu.innerHTML += `
+                <div class="legenda_item">
+                    <span class="legenda_texto" style="color:${cores[i]};">${usuario}</span>
+                    <strong class="legenda_porcentagem" style="color:${cores[i]};">${porcentagem}%</strong>
+                </div>`;
+        })
+    </script>
 </body>
 </html>
