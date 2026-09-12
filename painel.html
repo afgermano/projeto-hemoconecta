@@ -56,11 +56,12 @@
                     </p>
                 </div>
                 <hr>
-                <button>>Usuarios</button>
-                <button>>Dashbord</button>
+                <button onclick="mostrarTela('usuarios')">Usuarios</button>
+                <button onclick="mostrarTela('dashbord')">Dashbord</button>
             </div>
         </div>
-        <div class="dados_sistema">
+        <!-- DASHBORD -->
+        <div id="dashbord" class="dados_sistema">
             <div class="dados_cadastros">
                     <div class="caddoa">
                         <div class="dados_historico">
@@ -107,6 +108,13 @@
                 </div>
             </div>
         </div>
+
+        <!-- USUARIOS -->
+        <div id="usuarios" class="dados_sistema">
+            <div class="dados_cadastros">
+                lista de usuarios da porra toda
+            </div>
+        </div>
     </section>
     <footer class="footer">
         <div class="footer-content">
@@ -140,7 +148,7 @@
                     "Dezembro"]
         let quantdoa = [10,20,30,40,50,60,70,80,30,30,10,60]
         let quantpac = [5,25,15,40,50,60,70,80,26,50,20,90]
-        new Chart(ctx, {
+        window.graficoBarras = new Chart(ctx, {
             type: 'bar',
             data: {
 
@@ -189,7 +197,7 @@
     let quantusu = [50,20,30,50]
     let cores = [ '#FF6969','#63B4FF','#FFE992','#E07000']
 
-    new Chart(ctx2, {
+    window.graficoRosca = new Chart(ctx2, {
             type: 'doughnut',
             data: {
 
@@ -231,5 +239,6 @@
                 </div>`;
         })
     </script>
+    <script src="js/script_painel.js"></script>
 </body>
 </html>
