@@ -298,6 +298,73 @@ hr{
 }
 
 /* ==========================================================
+    TABELA DE USUARIOS
+   ==========================================================
+*/
+
+.container{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button_user{
+    background: transparent;
+    padding: 5px 10px;
+    border: 2px solid red;
+    border-radius: 5px;
+    box-shadow: 0 0 2px;
+    color: red;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.button_user:hover{
+    transition: 0.4s;
+    box-shadow: 0 0 10px;
+    background-color: rgb(255, 224, 224);
+}
+
+.table_user{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    border-radius: 2px;
+}
+
+.tabela{
+    border-collapse: collapse;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+
+.colunas{
+    background-color: #EDEDED;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.fileira{
+    border-bottom: 2px solid #989898;
+    text-align: center;
+}
+
+th{
+    padding: 12px;
+}
+.status{
+    font-weight: 700;
+    color: #078600;
+    background-color: #91FF98;
+    border-radius: 15px;
+    height: 25px;
+    width: 80px;
+    margin: auto;
+}
+
+
+
+
+/* ==========================================================
    RESPONSIVIDADE
    ========================================================== */
 
