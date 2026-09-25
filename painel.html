@@ -1,269 +1,330 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/stylepainel.css">
-    <link rel="icon" type="image/png" href="midia/logotipo.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/stylepainel.css" />
+    <link rel="icon" type="image/png" href="midia/logotipo.png" />
     <title>Painel | RedLife</title>
-</head>
-<body>
+  </head>
+  <body>
     <nav class="navbar">
-            <div class="navbar-logo">
-                <img src="midia/logotipo.png" alt="HemoConecta">
-            </div>
+      <div class="navbar-logo">
+        <img src="midia/logotipo.png" alt="HemoConecta" />
+      </div>
 
-            <ul class="navbar-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pacientes.html">Pacientes</a></li>
-                <li><a href="doadores.html">Doadores</a></li>
-            </ul>
-            <div class="navbar-action">
-                <a href="match.html" class="btn-active">Match</a>
-                <a href="Controle.html" class="navbar-logo">
-                    <img src="midia/Vector.png" alt="Controle">
-                </a>
-            </div>
+      <ul class="navbar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pacientes.html">Pacientes</a></li>
+        <li><a href="doadores.html">Doadores</a></li>
+      </ul>
+      <div class="navbar-action">
+        <a href="match.html" class="btn-active">Match</a>
+        <a href="Controle.html" class="navbar-logo">
+          <img src="midia/Vector.png" alt="Controle" />
+        </a>
+      </div>
 
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
     <section class="estrura_dados">
-        <div class="perfil_adm">
-            <div class="info_adm">
-                <div class="avatar_wrapper">
-                    <img src="midia/Vector.png" alt="foto_perfil" class="foto_adm">
-                </div>
-                <h3 class="nome_adm">Homelander</h3>
-                <p class="cargo_adm">Administrador</p>
-                <hr>
-                <div class="contatos_adm">
-                    <p>
-                        <img src="midia/Mail.png" alt="icone">
-                        <span>homelander@gmail.com</span>
-                    </p>
-                    <p>
-                        <img src="midia/Map pin.png" alt="icone">
-                        <span>Rua Fatec - lins</span>
-                    </p>
-                    <p>
-                        <img src="midia/Phone.png" alt="icone">
-                        <span>14999999999</span>
-                    </p>
-                </div>
-                <hr>
-                <button onclick="mostrarTela('usuarios')">Usuarios</button>
-                <button onclick="mostrarTela('dashbord')">Dashbord</button>
-            </div>
+      <div class="perfil_adm">
+        <div class="info_adm">
+          <div class="avatar_wrapper">
+            <img src="midia/Vector.png" alt="foto_perfil" class="foto_adm" />
+          </div>
+          <h3 class="nome_adm">Homelander</h3>
+          <p class="cargo_adm">Administrador</p>
+          <hr />
+          <div class="contatos_adm">
+            <p>
+              <img src="midia/Mail.png" alt="icone" />
+              <span>homelander@gmail.com</span>
+            </p>
+            <p>
+              <img src="midia/Map pin.png" alt="icone" />
+              <span>Rua Fatec - lins</span>
+            </p>
+            <p>
+              <img src="midia/Phone.png" alt="icone" />
+              <span>14999999999</span>
+            </p>
+          </div>
+          <hr />
+          <button onclick="mostrarTela('usuarios')">Usuarios</button>
+          <button onclick="mostrarTela('dashbord')">Dashbord</button>
         </div>
-        <!-- DASHBORD -->
-        <div id="dashbord" class="dados_sistema">
-            <div class="dados_cadastros">
-                    <div class="caddoa">
-                        <div class="dados_historico">
-                            <img src="midia/Frame 26.png" class="doador">
-                            <h4>Doadores Cadastrados</h4>
-                        </div>
-                        <h1>100</h1>
-                    </div>
-                    <div class="cadpac">
-                        <div class="dados_historico">
-                            <img src="midia/User.png" class="user">
-                            <h4>Pacientes Cadastrados</h4>
-                        </div>
-                        <h1>100</h1>
-                    </div>
-                    <div class="cadage">
-                        <div class="dados_historico">
-                            <img src="midia/Calendar.png" class="agenda">
-                            <h4>Agendamentos</h4>
-                        </div>
-                        <h1>100</h1>
-                    </div>
-                    <div class="cadtri">
-                        <div class="dados_historico">
-                            <img src="midia/Search.png" class="tri">
-                            <h4>Triagem</h4>
-                        </div>
-                        <h1>100</h1>
-                    </div>
+      </div>
+      <!-- DASHBORD -->
+      <div id="dashbord" class="dados_sistema">
+        <div class="dados_cadastros">
+          <div class="caddoa">
+            <div class="dados_historico">
+              <img src="midia/Frame 26.png" class="doador" />
+              <h4>Doadores Cadastrados</h4>
             </div>
-    
-            <div class="graficos">
-                <div class="dashbord">
-                    <div class="grafbarras">
-                        <canvas id="grafico_chart"></canvas>
-                    </div>
-                    <div class="roscaenum">
-                        <div class="numusu" id="numusus">
-                        </div>
-                        <div class="grafroscas">
-                            <canvas id="rosca_chart"></canvas>
-                        </div>
-                    </div>
-                </div>
+            <h1>100</h1>
+          </div>
+          <div class="cadpac">
+            <div class="dados_historico">
+              <img src="midia/User.png" class="user" />
+              <h4>Pacientes Cadastrados</h4>
             </div>
+            <h1>100</h1>
+          </div>
+          <div class="cadage">
+            <div class="dados_historico">
+              <img src="midia/Calendar.png" class="agenda" />
+              <h4>Agendamentos</h4>
+            </div>
+            <h1>100</h1>
+          </div>
+          <div class="cadtri">
+            <div class="dados_historico">
+              <img src="midia/Search.png" class="tri" />
+              <h4>Triagem</h4>
+            </div>
+            <h1>100</h1>
+          </div>
         </div>
 
-        <!-- USUARIOS -->
-        <div id="usuarios" class="dados_sistema">
-            <h2>Gereciamento de usuario</h2>
-            <div class="container">
-                <input type="button" value="+ Adicionar Usuario" class="button_user">
+        <div class="graficos">
+          <div class="dashbord">
+            <div class="grafbarras">
+              <canvas id="grafico_chart"></canvas>
             </div>
-            <div class="table_user">
-                <table class="tabela">
-                    <thead class="colunas">
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Setor</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody class="fileira">
-                        <tr>
-                            <th scope="row">00001</th>
-                            <td scope="row">Fernando Henrique</td>
-                            <td scope="row">Atendente</td>
-                            <td scope="row">Atendimento</td>
-                            <td scope="row">
-                                <div class="status">Ativo</div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="roscaenum">
+              <div class="numusu" id="numusus"></div>
+              <div class="grafroscas">
+                <canvas id="rosca_chart"></canvas>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <!-- USUARIOS -->
+      <div id="usuarios" class="dados_sistema">
+        <h2>Gereciamento de usuario</h2>
+        <div class="container">
+          <input
+            type="button"
+            value="+ Adicionar Usuario"
+            class="button_user"
+            id="button_cadastro"
+            onclick="mostrarmodal()"
+          />
+        </div>
+        <div class="table_user">
+          <table class="tabela">
+            <thead class="colunas">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Setor</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody class="fileira">
+              <tr>
+                <th scope="row">00001</th>
+                <td scope="row">Fernando Henrique</td>
+                <td scope="row">Atendente</td>
+                <td scope="row">Atendimento</td>
+                <td scope="row">
+                  <div class="status">Ativo</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="container">
+          <dialog id="modal-cadastro">
+            <img src="midia/Vector.png" alt="icon_usuario" class="foto_adm" />
+            <h2>Usuario</h2>
+            <form class="dados_user">
+              <div class="entradas_user">
+                <label for="cargo">Cargo</label>
+                <input
+                  type="text"
+                  list="lista-cargo"
+                  placeholder="Cargo"
+                  name="cargo"
+                />
+                <datalist id="lista-cargo">
+                  <option value="Atendente"></option>
+                  <option value="Medico"></option>
+                  <option value="Administrador"></option>
+                  <option value="Emfermeiro"></option>
+                </datalist>
+              </div>
+
+              <div class="entradas_user">
+                <label for="cpf">CPF</label>
+                <input type="text" placeholder="CPF" name="cpf" />
+              </div>
+
+              <div class="entradas_user">
+                <label for="nome">Nome</label>
+                <input
+                  type="text"
+                  name="nome"
+                  id="name_user"
+                  placeholder="Nome completo"
+                />
+              </div>
+
+              <div class="entradas_user">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Email" name="email" />
+              </div>
+
+              <div class="entradas_user">
+                <label for="Datanasc">Data de Nascimento</label>
+                <input type="date" name="Datanasc" />
+              </div>
+
+              <div class="entradas_user">
+                <label for="senha">Senha</label>
+                <input type="text" placeholder="Senha" name="senha" />
+              </div>
+            </form>
+            <button id="botao_fechar">Cadastrar</button>
+          </dialog>
+        </div>
+      </div>
     </section>
     <footer class="footer">
-        <div class="footer-content">
-            <p>
-                © 2026 <strong>Redlife</strong> — Sistema de apoio à doação de sangue
-            </p>
+      <div class="footer-content">
+        <p>
+          © 2026 <strong>Redlife</strong> — Sistema de apoio à doação de sangue
+        </p>
 
-            <p class="footer-sub">
-                Projeto desenvolvido para fins educacionais e portfólio
-            </p>
-        </div>
+        <p class="footer-sub">
+          Projeto desenvolvido para fins educacionais e portfólio
+        </p>
+      </div>
     </footer>
     <script src="js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-         //grafico em colunas
-        const ctx = document.getElementById('grafico_chart');
-        const ctx2 = document.getElementById('rosca_chart');
+      //grafico em colunas
+      const ctx = document.getElementById("grafico_chart");
+      const ctx2 = document.getElementById("rosca_chart");
 
-        let mes = ["Janeiro",
-                    "Feveiro",
-                    "Marco",
-                    "Abril", 
-                    "Maio", 
-                    "Junho",
-                    "Julho",
-                    "Agosto",
-                    "Outobro",
-                    "Setembro",
-                    "Novembro",
-                    "Dezembro"]
-        let quantdoa = [10,20,30,40,50,60,70,80,30,30,10,60]
-        let quantpac = [5,25,15,40,50,60,70,80,26,50,20,90]
-        window.graficoBarras = new Chart(ctx, {
-            type: 'bar',
-            data: {
+      let mes = [
+        "Janeiro",
+        "Feveiro",
+        "Marco",
+        "Abril",
+        "Maio",
+        "Junho",
+        "Julho",
+        "Agosto",
+        "Outobro",
+        "Setembro",
+        "Novembro",
+        "Dezembro",
+      ];
+      let quantdoa = [10, 20, 30, 40, 50, 60, 70, 80, 30, 30, 10, 60];
+      let quantpac = [5, 25, 15, 40, 50, 60, 70, 80, 26, 50, 20, 90];
+      window.graficoBarras = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: mes,
 
-            labels: mes,
-
-            datasets: [{
-                label: 'Doador',
-                data: quantdoa,
-                backgroundColor: '#FF6969'
+          datasets: [
+            {
+              label: "Doador",
+              data: quantdoa,
+              backgroundColor: "#FF6969",
             },
             {
-                label: 'Paciente',
-                data:quantpac,
-                backgroundColor: '#74CAFF'
+              label: "Paciente",
+              data: quantpac,
+              backgroundColor: "#74CAFF",
             },
             {
-                label: 'Funcionario',
-                data:quantpac,
-                backgroundColor: '#E07000'
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins:{
-            legend:{
-                display: false
-            }
+              label: "Funcionario",
+              data: quantpac,
+              backgroundColor: "#E07000",
+            },
+          ],
         },
-        scales: {
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
             x: {
-                grid: { display: false }
+              grid: { display: false },
             },
             y: {
-                beginAtZero: true,
-                grid: { color: '#F0F0F3' },
-                ticks: { display: false }
-            }
-        }
-    }
-});
-
-//grafico rosca
-    let usuarios = ['Doadores', 'Pacientes', 'Agendamentos', 'Funcionarios']
-    let quantusu = [50,20,30,50]
-    let cores = [ '#FF6969','#63B4FF','#FFE992','#E07000']
-
-    window.graficoRosca = new Chart(ctx2, {
-            type: 'doughnut',
-            data: {
-
-            labels: usuarios,
-
-            datasets: [{
-                label: 'Doador',
-                data: quantusu,
-                backgroundColor: cores
+              beginAtZero: true,
+              grid: { color: "#F0F0F3" },
+              ticks: { display: false },
             },
-            ]
+          },
+        },
+      });
+
+      //grafico rosca
+      let usuarios = ["Doadores", "Pacientes", "Agendamentos", "Funcionarios"];
+      let quantusu = [50, 20, 30, 50];
+      let cores = ["#FF6969", "#63B4FF", "#FFE992", "#E07000"];
+
+      window.graficoRosca = new Chart(ctx2, {
+        type: "doughnut",
+        data: {
+          labels: usuarios,
+
+          datasets: [
+            {
+              label: "Doador",
+              data: quantusu,
+              backgroundColor: cores,
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                cutout: '65%',
-                plugins:{
-                    legend:{
-                        display: false
-                    }
-                },
-                scales: {
-                y: {
-                beginAtZero: true
-                }
-            }
-            }
-        });
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          cutout: "65%",
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
 
-        const porcusu = document.getElementById('numusus')
-        const totalUsu = quantusu.reduce((soma, valor) => soma + valor, 0)
+      const porcusu = document.getElementById("numusus");
+      const totalUsu = quantusu.reduce((soma, valor) => soma + valor, 0);
 
-        usuarios.forEach((usuario,i) => {
-            const porcentagem = ((quantusu[i] / totalUsu) * 100).toFixed(1)
-            porcusu.innerHTML += `
+      usuarios.forEach((usuario, i) => {
+        const porcentagem = ((quantusu[i] / totalUsu) * 100).toFixed(1);
+        porcusu.innerHTML += `
                 <div class="legenda_item">
                     <span class="legenda_texto" style="color:${cores[i]};">${usuario}</span>
                     <strong class="legenda_porcentagem" style="color:${cores[i]};">${porcentagem}%</strong>
                 </div>`;
-        })
+      });
     </script>
     <script src="js/script_painel.js"></script>
-</body>
+  </body>
 </html>
