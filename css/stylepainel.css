@@ -356,6 +356,7 @@ hr {
 }
 
 dialog {
+  color: #910000;
   position: fixed;
   inset: 0;
   margin: auto;
@@ -366,6 +367,8 @@ dialog {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  gap: 25px;
 }
 
 dialog[open] {
@@ -439,6 +442,33 @@ th {
   height: 25px;
   width: 80px;
   margin: auto;
+}
+
+
+label{
+  font-weight: 500;
+}
+
+input{
+  padding: 5px;
+  border-radius: 9px;
+  border: 1px solid #B3B3B3;
+
+}
+
+#botao_fechar{
+  color: white;
+  background-color: #FF3838;
+  border: 2px solid #910000;
+  padding: 8px 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#botao_fechar:hover{
+  transform: translateY(-10px);
+  transition: 0.3s;
 }
 
 /* ==========================================================
@@ -537,4 +567,13 @@ th {
   .grafroscas {
     max-width: 240px;
   }
+
+
+
+/*          USUARIO           */
+
+.dados_user{
+  display: flex;
+  flex-direction: column;
+}
 }
